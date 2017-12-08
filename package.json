@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+"
+    "url": "git+https://github.com/micahzev/datr.git"
   },
   "author": "Micah Friedland and Eitan Ritz",
   "license": "MIT",
