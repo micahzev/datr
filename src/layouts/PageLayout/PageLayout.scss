@@ -1,12 +1,9 @@
 @import '../../styles/main.scss';
 
-.page-layout__viewport {
-  padding-top: 4rem;
-}
-
-.page-layout__nav-item--active {
-  font-weight: bold;
-  text-decoration: underline;
+.navbar-datr {
+  @include flexbox;
+  @include flex-direction(row);
+  margin-top: 2%;
 }
 
 .datr {
@@ -15,9 +12,35 @@
   font-size: 6rem;
   letter-spacing: 0.3rem;
   text-align: left;
+  @include flex(2);
 }
 
-.navbar-datr {
+.nav-items {
+  @include flex(3);
   @include flexbox;
   @include flex-direction(row);
+  @include justify-content(flex-end);
+  @include nunito-semi;
+  font-size: 1.1rem;
+  letter-spacing: 0.08rem;
+  text-transform: lowercase;
+}
+
+.page-layout__viewport {
+  padding-top: 4rem;
+}
+
+.page-layout__nav-item {
+  @include align-self(center);
+  color: $nav-item-color;
+  padding-right: 4%;
+}
+
+.page-layout__nav-item:hover {
+  text-decoration: none;
+  color: $nav-item-color-hover;
+}
+
+.page-layout__nav-item--active {
+  text-decoration: underline;
 }

@@ -13,9 +13,12 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  @include linear-gradient($primary-color, $primary-color, $secondary-color, $secondary-color);
+  @include linear-gradient($primary-color, $secondary-color);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   @include nunito;
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1 {
@@ -27,6 +30,12 @@ h1 {
   font-size: 1.2rem;
   letter-spacing: 0.1rem;
   line-height: 1.8rem;
+}
+
+p {
+  color: $p-color;
+  letter-spacing: 0.05rem;
+  margin-top: 1%;
 }
 
 *,
