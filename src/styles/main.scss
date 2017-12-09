@@ -1,5 +1,6 @@
 @import 'base';
 @import '~bootstrap/scss/bootstrap.scss';
+@import 'mixins';
 
 // Some best-practice CSS that's useful for most apps
 // Just remove them if they're not what you want
@@ -12,6 +13,20 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  @include linear-gradient($primary-color, $primary-color, $secondary-color, $secondary-color);
+  @include nunito;
+  font-size: 16px;
+}
+
+h1 {
+  @include nunito-black;
+  background-color: $tertiary-color;
+  display: inline-block;
+  padding-right: 2.5%;
+  color: $h1-color;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.8rem;
 }
 
 *,
