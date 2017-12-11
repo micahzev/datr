@@ -41,6 +41,11 @@
   color: $nav-item-color-hover;
 }
 
+.page-layout__nav-item:focus {
+  text-decoration: underline;
+  color: $nav-item-color;
+}
+
 .page-layout__nav-item--active {
   text-decoration: underline;
   color: $nav-item-color;
