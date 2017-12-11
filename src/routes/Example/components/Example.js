@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Visualisation from './Visualisation'
 import Blobs from '../assets/Blobs.png'
 
 import './Example.scss'
@@ -7,10 +8,14 @@ import './Example.scss'
 export const Example = () => (
 <div className="example" >
 
+  <Visualisation />
+
   <div className='hero-title'>
     <h1>visualise your data&rsquo;s potential</h1>
     <h2>with data exploration techniques you can start to understand and qualify your data</h2>
   </div>
+
+
 
   <img alt='Data Visualisation' className='blobs' src={Blobs} />
 

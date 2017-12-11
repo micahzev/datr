@@ -1,54 +1,43 @@
 import React from 'react'
 import './Visualisation.scss'
 
-import * as d3 from "d3";
+import * as d3 from 'd3'
 
-export const Visualisation = () => (
-  <svg></svg>
-)
+class Visualisation extends React.Component {
 
-var svg = d3.select("body").append("svg");
+  componentDidMount() { this.renderBalls() }
+  componentDidUpdate() { this.renderBalls() }
 
-var force = d3.layout.force();
+  renderBalls() {
 
-d3.json("graph.json", function(error, graph) {
-  if (error) throw error;
+    let width = window.innerWidth
+    let height = window.innerHeight
 
-  force
-      .nodes(graph.nodes)
-      .links(graph.links)
-      .on("tick", tick)
-      .start();
+    let svg = d3.select(this.refs.svg)
 
-  var link = svg.selectAll(".link")
-      .data(graph.links)
-    .enter().append("line")
-      .attr("class", "link");
+    svg.attr("width", width)
+       .attr("height", height)
 
-  var node = svg.selectAll(".node")
-      .data(graph.nodes)
-    .enter().append("circle")
-      .attr("class", "node")
-      .attr("r", 4.5);
+    d3.interval(function(elapsed) {
 
-  resize();
-  d3.select(window).on("resize", resize);
+      svg.selectAll('circle').remove()
 
-  function tick() {
-    link.attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+      let color = d3.scaleOrdinal(d3.schemeCategory10)
 
-    node.attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; });
+      svg.selectAll('circle')
+        .data(d3.range(60).map(function() { return [(Math.random() * (width-64))+32, (Math.random() * (height-64))+32] }))
+      .enter().append('circle')
+         .attr('transform', function(d) { return 'translate(' + d + ')'; })
+         .attr('r', 32)
+         .style('fill', function(d, i) { return color(i); });
+    }, 500)
   }
 
-  function resize() {
-    width = window.innerWidth, height = window.innerHeight;
-    svg.attr("width", width).attr("height", height);
-    force.size([width, height]).resume();
+  render () {
+    return (
+      <svg ref='svg' className='visualisation' ></svg>
+    )
   }
-});
+}
 
 export default Visualisation
