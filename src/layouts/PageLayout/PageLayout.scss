@@ -27,7 +27,7 @@
 }
 
 .page-layout__viewport {
-  padding-top: 4rem;
+  padding-top: 1rem;
 }
 
 .page-layout__nav-item {
@@ -43,4 +43,5 @@
 
 .page-layout__nav-item--active {
   text-decoration: underline;
+  color: $nav-item-color;
 }

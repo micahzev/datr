@@ -21,21 +21,34 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+::selection {
+  background: $tertiary-color;
+}
+
+
 h1 {
   @include nunito-black;
   background-color: $tertiary-color;
   display: inline-block;
+  margin-bottom: 0;
   padding-right: 2.5%;
+  padding-left: 1%;
   color: $h1-color;
   font-size: 1.2rem;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
   line-height: 1.8rem;
+}
+
+h2 {
+  @include nunito-semi;
+  color: $h2-color;
 }
 
 p {
   color: $p-color;
   letter-spacing: 0.05rem;
   margin-top: 1%;
+  text-align: justify;
 }
 
 *,

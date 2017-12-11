@@ -2,4 +2,30 @@
 
 .example {
   margin: 0 auto;
+  position: relative; //for blob image
+}
+
+.hero-title {
+  padding: 10rem 2rem;
+  background-color: none;
+  margin-bottom: 2%;
+  //@include linear-gradient($primary-color, $secondary-color);
+  z-index: 10;
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+.paragraph-box {
+  @include linear-gradient($primary-color, $secondary-color);
+  padding: 2%;
+  margin-bottom: 3%;
+}
+
+.blobs {
+  clear: both;
+  width: 100%;
+  position: absolute; //for blob image
+  top:0;
+  z-index: 0;
 }
